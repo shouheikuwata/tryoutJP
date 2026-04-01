@@ -20,8 +20,15 @@ export async function GET(request: Request) {
 
   const items = await getDimensionMetrics({ facilityId, periodType, dimensionType: "hour_of_day", year, month });
 
+  // 9時〜23時の固定順で並べる
+  const hours = Array.from({ length: 15 }, (_, i) => String(i + 9));
+  const sorted = hours.map((h) => {
+    const found = items.find((i) => i.dimensionValue === h);
+    return { label: `${h}時`, usageCount: found?.usageCount ?? 0 };
+  });
+
   return NextResponse.json({
     dimensionType: "hour_of_day",
-    items: items.map((i) => ({ label: toJapaneseLabel("hour_of_day", i.dimensionValue), usageCount: i.usageCount })),
+    items: sorted,
   });
 }

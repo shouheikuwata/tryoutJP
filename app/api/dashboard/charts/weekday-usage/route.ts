@@ -19,8 +19,15 @@ export async function GET(request: Request) {
 
   const items = await getDimensionMetrics({ facilityId, periodType, dimensionType: "weekday", year, month });
 
+  // 月〜日の固定順で並べる
+  const weekdayOrder = ["月", "火", "水", "木", "金", "土", "日"];
+  const sorted = weekdayOrder.map((day) => {
+    const found = items.find((i) => i.dimensionValue === day);
+    return { label: day, usageCount: found?.usageCount ?? 0 };
+  });
+
   return NextResponse.json({
     dimensionType: "weekday",
-    items: items.map((i) => ({ label: i.dimensionValue, usageCount: i.usageCount })),
+    items: sorted,
   });
 }
