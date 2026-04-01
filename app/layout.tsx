@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Beauty Spot | 施設向けヘアアイロン設置サービス",
+  title: "TRYOUT japan agency | 商業施設の体験価値向上とデータ活用",
   description:
-    "百貨店・商業施設の化粧室にヘアアイロン設置サービスを導入。施設価値向上と来店分析を実現するBeauty Spot。",
+    "商業施設の付加価値を体験型サービスとデータ分析で向上。ヘアアイロン・キッズスペース・イベント企画から月次レポートまで。TRYOUT japan agency（株）",
 };
 
 export default function RootLayout({

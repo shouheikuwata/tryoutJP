@@ -1,33 +1,59 @@
 import SectionTitle from "@/components/common/section-title";
+import { Smartphone, QrCode, ClipboardCheck, BarChart3 } from "lucide-react";
 
 const steps = [
-  { num: "01", title: "お問い合わせ", desc: "フォームまたはお電話でご相談ください" },
-  { num: "02", title: "ヒアリング", desc: "施設状況と導入ニーズを確認します" },
-  { num: "03", title: "設置計画", desc: "最適な設置場所と台数をご提案します" },
-  { num: "04", title: "施工・設置", desc: "施設の営業に配慮したスケジュールで設置" },
-  { num: "05", title: "運用開始", desc: "ダッシュボードで利用データをすぐに確認" },
+  {
+    num: "STEP 1",
+    icon: Smartphone,
+    title: "LINE登録",
+    desc: "商業施設のLINE公式アカウントから簡単に会員登録。来館者の手間を最小限に抑えます。",
+    color: "from-green-400 to-green-600",
+  },
+  {
+    num: "STEP 2",
+    icon: QrCode,
+    title: "QRコードでレンタル開始",
+    desc: "設置機器のQRコードを読み取り、年齢・住所・電話番号を登録してレンタルを開始。初回のみ情報入力が必要です。",
+    color: "from-primary to-pink-500",
+  },
+  {
+    num: "STEP 3",
+    icon: ClipboardCheck,
+    title: "QRコードでレンタル終了",
+    desc: "終了用QRコードをスキャンしてレンタル完了。利用時間が自動的に記録されます。",
+    color: "from-blue-400 to-blue-600",
+  },
+  {
+    num: "REPORT",
+    icon: BarChart3,
+    title: "月次レポートで施設に提供",
+    desc: "年代別・地域別・利用時間帯の分析レポートを毎月施設へ提供。販促施策やテナント戦略の判断材料にご活用いただけます。",
+    color: "from-amber-400 to-orange-500",
+  },
 ];
 
 export default function InstallFlowSection() {
   return (
     <section id="flow" className="bg-white py-20">
       <div className="mx-auto max-w-6xl px-4 lg:px-8">
-        <SectionTitle title="導入フロー" subtitle="お問い合わせから運用開始までシンプルなステップ" />
-        <div className="relative">
-          <div className="absolute left-6 top-0 hidden h-full w-px bg-border md:block" />
-          <div className="space-y-8">
-            {steps.map((step) => (
-              <div key={step.num} className="flex items-start gap-6">
-                <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
-                  {step.num}
+        <SectionTitle title="ご利用の流れ" subtitle="LINE登録からデータ活用まで、シンプルな3ステップ" />
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, i) => (
+            <div key={step.num} className="relative rounded-xl border border-border bg-background p-6 text-center">
+              {i < steps.length - 1 && (
+                <div className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 text-2xl text-muted-foreground/40 lg:block">
+                  →
                 </div>
-                <div className="pt-2">
-                  <h3 className="font-semibold">{step.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{step.desc}</p>
-                </div>
+              )}
+              <div className={`mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${step.color}`}>
+                <step.icon className="h-8 w-8 text-white" />
               </div>
-            ))}
-          </div>
+              <p className="mb-1 text-xs font-bold tracking-widest text-primary">{step.num}</p>
+              <h3 className="mb-3 text-lg font-semibold">{step.title}</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

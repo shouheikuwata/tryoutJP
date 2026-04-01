@@ -23,7 +23,8 @@
       "Bash(1 __NEW_LINE_da3e5952bb3eadba__ echo '')",
       "Bash(1 __NEW_LINE_da3e5952bb3eadba__ echo 'Beauty Spot <noreply@beautyspot.example>')",
       "Bash(1 __NEW_LINE_da3e5952bb3eadba__ echo 'https://example.com/material.pdf')",
-      "Bash(./node_modules/.bin/tsx prisma/seed.ts)"
+      "Bash(./node_modules/.bin/tsx prisma/seed.ts)",
+      "Bash(./node_modules/.bin/tsx scripts/seed-april.ts)"
     ]
   }
 }

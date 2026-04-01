@@ -7,8 +7,8 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "サービス", href: "#service" },
   { label: "導入メリット", href: "#benefits" },
-  { label: "安全性", href: "#safety" },
-  { label: "導入フロー", href: "#flow" },
+  { label: "活用事例", href: "#safety" },
+  { label: "ご利用の流れ", href: "#flow" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -18,8 +18,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 lg:px-8">
-        <Link href="/" className="text-xl font-semibold tracking-wide text-primary">
-          Beauty Spot
+        <Link href="/" className="flex items-center gap-2">
+          <span className="text-xl font-bold tracking-wide text-primary">TRYOUT</span>
+          <span className="text-xs text-muted-foreground">japan agency</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
