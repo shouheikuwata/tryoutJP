@@ -161,7 +161,8 @@ export default function DashboardPage() {
                   <XAxis dataKey="label" fontSize={12} tickLine={false} />
                   <YAxis fontSize={12} tickLine={false} axisLine={false} />
                   <Tooltip
-                    formatter={(value: number) => [`${value}回`, "利用回数"]}
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    formatter={(value: any) => [`${value}回`, "利用回数"]}
                     contentStyle={{ borderRadius: "8px", border: "1px solid #e5e0dc" }}
                   />
                   <Bar dataKey="usageCount" fill="#d4859b" name="利用回数" radius={[4, 4, 0, 0]} />
