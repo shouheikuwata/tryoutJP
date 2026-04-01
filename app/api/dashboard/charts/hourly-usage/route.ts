@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth/auth";
 import { getDimensionMetrics } from "@/lib/analytics/dimensions";
+import { toJapaneseLabel } from "@/lib/utils/labels";
 import type { PeriodType } from "@/lib/analytics/summary";
 
 export async function GET(request: Request) {
@@ -21,6 +22,6 @@ export async function GET(request: Request) {
 
   return NextResponse.json({
     dimensionType: "hour_of_day",
-    items: items.map((i) => ({ label: i.dimensionValue, usageCount: i.usageCount })),
+    items: items.map((i) => ({ label: toJapaneseLabel("hour_of_day", i.dimensionValue), usageCount: i.usageCount })),
   });
 }

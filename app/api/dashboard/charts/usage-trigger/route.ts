@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth/auth";
 import { getDimensionMetrics } from "@/lib/analytics/dimensions";
+import { toJapaneseLabel } from "@/lib/utils/labels";
 import type { PeriodType } from "@/lib/analytics/summary";
 
 export async function GET(request: Request) {
@@ -21,6 +22,6 @@ export async function GET(request: Request) {
 
   return NextResponse.json({
     dimensionType: "usage_trigger",
-    items: items.map((i) => ({ label: i.dimensionValue, usageCount: i.usageCount, percentage: i.percentage ? Number(i.percentage) : null })),
+    items: items.map((i) => ({ label: toJapaneseLabel("usage_trigger", i.dimensionValue), usageCount: i.usageCount, percentage: i.percentage ? Number(i.percentage) : null })),
   });
 }

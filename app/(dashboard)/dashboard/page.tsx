@@ -147,17 +147,23 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        {/* Hourly Chart */}
-        <Card>
-          <CardHeader><CardTitle className="text-base">時間帯別利用</CardTitle></CardHeader>
+        {/* Hourly Chart - full width */}
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            <CardTitle className="text-base">時間帯別利用</CardTitle>
+            <p className="text-sm text-muted-foreground">各時間帯の利用回数</p>
+          </CardHeader>
           <CardContent>
-            <div className="h-48">
+            <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={hourlyData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="label" fontSize={12} />
-                  <YAxis fontSize={12} />
-                  <Tooltip />
+                <BarChart data={hourlyData} barCategoryGap="15%">
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="label" fontSize={12} tickLine={false} />
+                  <YAxis fontSize={12} tickLine={false} axisLine={false} />
+                  <Tooltip
+                    formatter={(value: number) => [`${value}回`, "利用回数"]}
+                    contentStyle={{ borderRadius: "8px", border: "1px solid #e5e0dc" }}
+                  />
                   <Bar dataKey="usageCount" fill="#d4859b" name="利用回数" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>

@@ -13,7 +13,17 @@
       "Bash(./node_modules/.bin/prisma generate:*)",
       "Bash(./node_modules/.bin/tsc --noEmit)",
       "Bash(npm run:*)",
-      "Bash(./node_modules/.bin/next build:*)"
+      "Bash(./node_modules/.bin/next build:*)",
+      "Bash(vercel env:*)",
+      "Bash(SCOPE=\"--scope shouheikuwatas-projects\" __NEW_LINE_da3e5952bb3eadba__ echo 'postgresql://neondb_owner:npg_j1qnEDo9JZaz@ep-spring-rice-a1cres9v-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require')",
+      "Bash(1 __NEW_LINE_da3e5952bb3eadba__ echo 'postgresql://neondb_owner:npg_j1qnEDo9JZaz@ep-spring-rice-a1cres9v.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require')",
+      "Bash(1 __NEW_LINE_da3e5952bb3eadba__ echo 'ud0LGQtJ7IJA7Ak6BaHp6EjHvVgXmK4hT99A1f9fq+w=')",
+      "Bash(1 __NEW_LINE_da3e5952bb3eadba__ echo '4d84c7b414d3a5a6f4662744bf3f3715ddea27002d3d01bbee73431e275cf835')",
+      "Bash(1 __NEW_LINE_da3e5952bb3eadba__ echo 'efcbf8dd6110303216ea3830fcfa515b5fdb40efb0e27e789a06b421ad843071')",
+      "Bash(1 __NEW_LINE_da3e5952bb3eadba__ echo '')",
+      "Bash(1 __NEW_LINE_da3e5952bb3eadba__ echo 'Beauty Spot <noreply@beautyspot.example>')",
+      "Bash(1 __NEW_LINE_da3e5952bb3eadba__ echo 'https://example.com/material.pdf')",
+      "Bash(./node_modules/.bin/tsx prisma/seed.ts)"
     ]
   }
 }
