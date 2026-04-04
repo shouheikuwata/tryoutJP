@@ -1,6 +1,5 @@
 import { Sparkles, BarChart3, Handshake } from "lucide-react";
 import SectionTitle from "@/components/common/section-title";
-import Image from "next/image";
 
 const benefits = [
   {
@@ -38,26 +37,6 @@ export default function BenefitsSection() {
           ))}
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
-          <div className="overflow-hidden rounded-xl">
-            <Image
-              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=80"
-              alt="データ分析イメージ"
-              width={600}
-              height={400}
-              className="h-64 w-full object-cover"
-            />
-          </div>
-          <div className="overflow-hidden rounded-xl">
-            <Image
-              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80"
-              alt="商業施設の顧客体験"
-              width={600}
-              height={400}
-              className="h-64 w-full object-cover"
-            />
-          </div>
-        </div>
       </div>
     </section>
   );

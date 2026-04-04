@@ -12,11 +12,9 @@ const facilitySpaces = [
 ];
 
 const experienceServices = [
-  { name: "ヘアアイロン レンタル", desc: "外出先でのヘアリセット需要に対応" },
-  { name: "スタイリングサービス", desc: "プロのスタイリストによるミニ施術" },
-  { name: "マッサージチェア", desc: "買い物の合間にリラクゼーション" },
-  { name: "スマホ充電サービス", desc: "滞在時間を自然に延長" },
-  { name: "体験型イベント", desc: "新商品PRやタレントイベントの企画運営" },
+  { name: "ヘアアイロン レンタル", desc: "外出先でのヘアリセット需要に対応", available: true },
+  { name: "マッサージチェア", desc: "買い物の合間にリラクゼーション", available: false },
+  { name: "スマホ充電サービス", desc: "滞在時間を自然に延長", available: false },
 ];
 
 export default function FacilityServicesSection() {
@@ -43,8 +41,8 @@ export default function FacilityServicesSection() {
             </div>
             <div className="mt-6 overflow-hidden rounded-lg">
               <Image
-                src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80"
-                alt="商業施設の共用スペース"
+                src="/makeroom.jpeg"
+                alt="商業施設の設置可能スペース"
                 width={600}
                 height={300}
                 className="h-48 w-full object-cover"
@@ -62,10 +60,17 @@ export default function FacilityServicesSection() {
             </div>
             <div className="space-y-3">
               {experienceServices.map((svc) => (
-                <div key={svc.name} className="flex items-start gap-3 rounded-lg border border-border/50 p-4 transition-colors hover:bg-pink-50/50">
-                  <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <div key={svc.name} className={`flex items-start gap-3 rounded-lg border p-4 transition-colors ${svc.available ? "border-primary/30 bg-pink-50/30 hover:bg-pink-50/50" : "border-border/50 opacity-60"}`}>
+                  <ArrowRight className={`mt-0.5 h-4 w-4 shrink-0 ${svc.available ? "text-primary" : "text-muted-foreground"}`} />
                   <div>
-                    <p className="font-medium">{svc.name}</p>
+                    <div className="flex items-center gap-2">
+                      <p className="font-medium">{svc.name}</p>
+                      {svc.available ? (
+                        <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">提供中</span>
+                      ) : (
+                        <span className="rounded-full bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">準備中</span>
+                      )}
+                    </div>
                     <p className="mt-0.5 text-sm text-muted-foreground">{svc.desc}</p>
                   </div>
                 </div>

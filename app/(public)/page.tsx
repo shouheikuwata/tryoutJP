@@ -5,7 +5,6 @@ import ProblemSection from "@/components/public/problem-section";
 import BenefitsSection from "@/components/public/benefits-section";
 import FacilityServicesSection from "@/components/public/facility-services-section";
 import AnalyticsPreviewSection from "@/components/public/analytics-preview-section";
-import SafetySection from "@/components/public/safety-section";
 import InstallFlowSection from "@/components/public/install-flow-section";
 import FAQSection from "@/components/public/faq-section";
 import CTAButton from "@/components/common/cta-button";
@@ -21,7 +20,6 @@ export default function HomePage() {
         <BenefitsSection />
         <FacilityServicesSection />
         <AnalyticsPreviewSection />
-        <SafetySection />
         <InstallFlowSection />
         <FAQSection />
 
