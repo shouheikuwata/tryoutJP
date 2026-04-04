@@ -33,11 +33,11 @@ export default function AnalyticsPreviewSection() {
 
         <div className="mt-12 overflow-hidden rounded-xl border border-white/10">
           <Image
-            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80"
-            alt="データダッシュボードイメージ"
+            src="/product_analytics.png"
+            alt="Beauty Spot データ分析ダッシュボード"
             width={1200}
-            height={500}
-            className="h-64 w-full object-cover opacity-80 md:h-96"
+            height={600}
+            className="w-full object-contain"
           />
           <div className="bg-white/5 p-6 text-center backdrop-blur-sm">
             <p className="text-sm text-white/70">月次 / 年次 / 累計の切り替え表示 ・ CSVエクスポートで社内共有も簡単</p>
