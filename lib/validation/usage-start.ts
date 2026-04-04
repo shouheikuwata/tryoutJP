@@ -2,20 +2,20 @@ import { z } from "zod";
 
 const baseSchema = z.object({
   phone: z
-    .string()
+    .string({ error: "電話番号を入力してください" })
     .min(1, "電話番号を入力してください")
-    .max(20),
+    .max(20, "電話番号が長すぎます"),
   hasUsedBefore: z.enum(["yes", "no"], {
     error: "選択してください",
   }),
   deviceId: z
-    .string()
+    .string({ error: "デバイスIDが必要です" })
     .min(1, "デバイスIDが必要です"),
-  nickname: z.string().max(100).optional().default(""),
-  city: z.string().max(100).optional().default(""),
-  birthDate: z.string().optional().default(""),
-  visitPurpose: z.string().optional().default(""),
-  usageTrigger: z.string().optional().default(""),
+  nickname: z.string({ error: "ニックネームを入力してください" }).max(100, "100文字以内で入力してください").optional().default(""),
+  city: z.string({ error: "市区町村を入力してください" }).max(100, "100文字以内で入力してください").optional().default(""),
+  birthDate: z.string({ error: "生年月日を入力してください" }).optional().default(""),
+  visitPurpose: z.string({ error: "選択してください" }).optional().default(""),
+  usageTrigger: z.string({ error: "選択してください" }).optional().default(""),
 });
 
 /** "ない" の場合は追加項目を必須にする */

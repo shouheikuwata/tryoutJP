@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   usageStartSchema,
   type UsageStartInput,
@@ -25,6 +25,7 @@ export default function UsageStartForm() {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } = useForm<UsageStartInput>({
@@ -34,6 +35,22 @@ export default function UsageStartForm() {
 
   const hasUsedBefore = watch("hasUsedBefore");
   const showUserInfo = hasUsedBefore === "no";
+
+  const [birthYear, setBirthYear] = useState("");
+  const [birthMonth, setBirthMonth] = useState("");
+  const [birthDay, setBirthDay] = useState("");
+
+  const currentYear = new Date().getFullYear();
+  const years = useMemo(() => {
+    const arr: number[] = [];
+    for (let y = currentYear; y >= currentYear - 100; y--) arr.push(y);
+    return arr;
+  }, [currentYear]);
+
+  const daysInMonth = useMemo(() => {
+    if (!birthYear || !birthMonth) return 31;
+    return new Date(Number(birthYear), Number(birthMonth), 0).getDate();
+  }, [birthYear, birthMonth]);
 
   const onSubmit = async (data: UsageStartInput) => {
     setSubmitting(true);
@@ -126,13 +143,64 @@ export default function UsageStartForm() {
               error={errors.city?.message}
             />
 
-            <Input
-              label="生年月日 *"
-              id="birthDate"
-              type="date"
-              {...register("birthDate")}
-              error={errors.birthDate?.message}
-            />
+            {/* Birth Date - Year / Month / Day selects */}
+            <div className="space-y-1.5">
+              <span className="block text-sm font-medium text-foreground">生年月日 *</span>
+              <div className="grid grid-cols-3 gap-3">
+                <select
+                  className="flex h-10 w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  value={birthYear}
+                  onChange={(e) => {
+                    setBirthYear(e.target.value);
+                    const val = e.target.value && birthMonth && birthDay
+                      ? `${e.target.value}-${birthMonth.padStart(2, "0")}-${birthDay.padStart(2, "0")}`
+                      : "";
+                    setValue("birthDate", val, { shouldValidate: true });
+                  }}
+                >
+                  <option value="">年</option>
+                  {years.map((y) => (
+                    <option key={y} value={String(y)}>{y}年</option>
+                  ))}
+                </select>
+                <select
+                  className="flex h-10 w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  value={birthMonth}
+                  onChange={(e) => {
+                    setBirthMonth(e.target.value);
+                    const val = birthYear && e.target.value && birthDay
+                      ? `${birthYear}-${e.target.value.padStart(2, "0")}-${birthDay.padStart(2, "0")}`
+                      : "";
+                    setValue("birthDate", val, { shouldValidate: true });
+                  }}
+                >
+                  <option value="">月</option>
+                  {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
+                    <option key={m} value={String(m)}>{m}月</option>
+                  ))}
+                </select>
+                <select
+                  className="flex h-10 w-full rounded-md border border-input bg-card px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  value={birthDay}
+                  onChange={(e) => {
+                    setBirthDay(e.target.value);
+                    const val = birthYear && birthMonth && e.target.value
+                      ? `${birthYear}-${birthMonth.padStart(2, "0")}-${e.target.value.padStart(2, "0")}`
+                      : "";
+                    setValue("birthDate", val, { shouldValidate: true });
+                  }}
+                >
+                  <option value="">日</option>
+                  {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((d) => (
+                    <option key={d} value={String(d)}>{d}日</option>
+                  ))}
+                </select>
+              </div>
+              <input type="hidden" {...register("birthDate")} />
+              {errors.birthDate && (
+                <p className="text-sm text-destructive">{errors.birthDate.message}</p>
+              )}
+            </div>
 
             {/* Visit Purpose */}
             <div className="space-y-1.5">

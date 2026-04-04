@@ -7,7 +7,7 @@ export const usageEndSchema = z.object({
   didShopping: z.enum(["yes", "no"], {
     error: "選択してください",
   }),
-  deviceId: z.string().min(1, "デバイスIDが必要です"),
+  deviceId: z.string({ error: "デバイスIDが必要です" }).min(1, "デバイスIDが必要です"),
 });
 
 export type UsageEndInput = z.infer<typeof usageEndSchema>;
