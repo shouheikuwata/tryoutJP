@@ -8,7 +8,6 @@ import AnalyticsPreviewSection from "@/components/public/analytics-preview-secti
 import InstallFlowSection from "@/components/public/install-flow-section";
 import FAQSection from "@/components/public/faq-section";
 import CTAButton from "@/components/common/cta-button";
-import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -49,15 +48,6 @@ export default function HomePage() {
               私たちは施設と一緒に考え、体験サービスの企画から導入、データ分析、
               会員向けパーソナライズドサービスの設計まで一気通貫でサポートする会社です。
             </p>
-            <div className="mt-8 overflow-hidden rounded-xl">
-              <Image
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80"
-                alt="オフィスイメージ"
-                width={1000}
-                height={400}
-                className="h-56 w-full object-cover md:h-72"
-              />
-            </div>
           </div>
         </section>
       </main>
