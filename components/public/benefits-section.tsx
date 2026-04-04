@@ -28,7 +28,7 @@ export default function BenefitsSection() {
         <div className="grid gap-8 lg:grid-cols-3">
           {benefits.map((b) => (
             <div key={b.title} className="rounded-xl bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-pink-100">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-secondary">
                 <b.icon className="h-7 w-7 text-primary" />
               </div>
               <h3 className="mb-3 text-lg font-semibold">{b.title}</h3>

@@ -27,14 +27,14 @@ export default function FacilityServicesSection() {
           {/* Left: Facility Spaces */}
           <div className="rounded-xl border border-border bg-white p-8">
             <div className="mb-6 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100">
-                <Building2 className="h-5 w-5 text-slate-600" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary">
+                <Building2 className="h-5 w-5 text-primary" />
               </div>
               <h3 className="text-lg font-semibold">商業施設側 ― 設置可能スペース</h3>
             </div>
             <div className="grid grid-cols-2 gap-3">
               {facilitySpaces.map((space) => (
-                <div key={space} className="rounded-lg bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700">
+                <div key={space} className="rounded-lg bg-secondary/50 px-4 py-3 text-sm font-medium text-foreground">
                   {space}
                 </div>
               ))}
@@ -53,14 +53,14 @@ export default function FacilityServicesSection() {
           {/* Right: Experience Services */}
           <div className="rounded-xl border border-border bg-white p-8">
             <div className="mb-6 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-pink-50">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary">
                 <Lightbulb className="h-5 w-5 text-primary" />
               </div>
               <h3 className="text-lg font-semibold">体験サービス ― 活用方法</h3>
             </div>
             <div className="space-y-3">
               {experienceServices.map((svc) => (
-                <div key={svc.name} className={`flex items-start gap-3 rounded-lg border p-4 transition-colors ${svc.available ? "border-primary/30 bg-pink-50/30 hover:bg-pink-50/50" : "border-border/50 opacity-60"}`}>
+                <div key={svc.name} className={`flex items-start gap-3 rounded-lg border p-4 transition-colors ${svc.available ? "border-primary/30 bg-secondary/30 hover:bg-secondary/50" : "border-border/50 opacity-60"}`}>
                   <ArrowRight className={`mt-0.5 h-4 w-4 shrink-0 ${svc.available ? "text-primary" : "text-muted-foreground"}`} />
                   <div>
                     <div className="flex items-center gap-2">

@@ -7,28 +7,28 @@ const steps = [
     icon: Smartphone,
     title: "LINE登録",
     desc: "商業施設のLINE公式アカウントから簡単に会員登録。来館者の手間を最小限に抑えます。",
-    color: "from-green-400 to-green-600",
+    color: "from-primary/70 to-primary",
   },
   {
     num: "STEP 2",
     icon: QrCode,
     title: "QRコードでレンタル開始",
     desc: "設置機器のQRコードを読み取り、年齢・住所・電話番号を登録してレンタルを開始。初回のみ情報入力が必要です。",
-    color: "from-primary to-pink-500",
+    color: "from-primary/80 to-primary",
   },
   {
     num: "STEP 3",
     icon: ClipboardCheck,
     title: "QRコードでレンタル終了",
     desc: "終了用QRコードをスキャンしてレンタル完了。利用時間が自動的に記録されます。",
-    color: "from-blue-400 to-blue-600",
+    color: "from-primary/90 to-primary",
   },
   {
     num: "REPORT",
     icon: BarChart3,
     title: "月次レポートで施設に提供",
     desc: "年代別・地域別・利用時間帯の分析レポートを毎月施設へ提供。販促施策やテナント戦略の判断材料にご活用いただけます。",
-    color: "from-amber-400 to-orange-500",
+    color: "from-primary to-primary",
   },
 ];
 

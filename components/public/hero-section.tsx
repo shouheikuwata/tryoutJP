@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#4a1a25] via-[#5e2230] to-[#4a1a25] text-white">
       <div className="absolute inset-0 opacity-20">
         <Image
           src="https://images.unsplash.com/photo-1567449303078-57ad995bd329?w=1920&q=80"
@@ -14,11 +14,11 @@ export default function HeroSection() {
         />
       </div>
       <div className="relative mx-auto max-w-6xl px-4 py-28 lg:px-8 lg:py-36">
-        <p className="mb-3 text-sm font-semibold tracking-[0.3em] text-pink-300/80">TRYOUT JAPAN AGENCY</p>
+        <p className="mb-3 text-sm font-semibold tracking-[0.3em] text-white/60">TRYOUT JAPAN AGENCY</p>
         <h1 className="text-3xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl">
           商業施設を
           <br />
-          <span className="text-pink-300">「体験の場」</span>へ
+          <span className="text-secondary">「体験の場」</span>へ
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
           買い物だけの場所から、来館者が過ごしたくなる空間へ。

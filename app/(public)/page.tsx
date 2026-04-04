@@ -23,7 +23,7 @@ export default function HomePage() {
         <FAQSection />
 
         {/* Final CTA */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 to-pink-100 py-20">
+        <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary py-20">
           <div className="mx-auto max-w-3xl px-4 text-center lg:px-8">
             <h2 className="text-2xl font-bold md:text-3xl">まずはお気軽にご相談ください</h2>
             <p className="mt-4 text-muted-foreground">

@@ -13,18 +13,18 @@ const metrics = [
 
 export default function AnalyticsPreviewSection() {
   return (
-    <section id="service" className="bg-slate-900 py-20 text-white">
+    <section id="service" className="bg-[#4a1a25] py-20 text-white">
       <div className="mx-auto max-w-6xl px-4 lg:px-8">
         <div className="mb-12 text-center">
           <h2 className="text-2xl font-bold tracking-tight md:text-3xl">月次レポートで、ここまで分かる</h2>
-          <div className="mx-auto mt-3 h-0.5 w-12 bg-pink-400" />
+          <div className="mx-auto mt-3 h-0.5 w-12 bg-secondary" />
           <p className="mt-4 text-white/60">施設専用ダッシュボードで、データに基づく施設改善を実現</p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {metrics.map((m) => (
             <div key={m.label} className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <m.icon className="mb-3 h-8 w-8 text-pink-300" />
+              <m.icon className="mb-3 h-8 w-8 text-secondary" />
               <p className="font-semibold">{m.label}</p>
               <p className="mt-1 text-sm text-white/50">{m.desc}</p>
             </div>
