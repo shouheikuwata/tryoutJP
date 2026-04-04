@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const usageStartSchema = z.object({
+const baseSchema = z.object({
   phone: z
     .string()
     .min(1, "電話番号を入力してください")
@@ -8,31 +8,38 @@ export const usageStartSchema = z.object({
   hasUsedBefore: z.enum(["yes", "no"], {
     error: "選択してください",
   }),
-  nickname: z
-    .string()
-    .min(1, "ニックネームを入力してください")
-    .max(100),
-  city: z
-    .string()
-    .min(1, "市区町村を入力してください")
-    .max(100),
-  birthDate: z
-    .string()
-    .min(1, "生年月日を入力してください"),
-  visitPurpose: z.enum(
-    ["shopping", "dining", "work_commute", "meeting", "other"],
-    { error: "選択してください" }
-  ),
-  usageTrigger: z.enum(
-    ["rain_humidity", "wind", "sweat", "before_date", "work", "just_style"],
-    { error: "選択してください" }
-  ),
   deviceId: z
     .string()
     .min(1, "デバイスIDが必要です"),
+  nickname: z.string().max(100).optional().default(""),
+  city: z.string().max(100).optional().default(""),
+  birthDate: z.string().optional().default(""),
+  visitPurpose: z.string().optional().default(""),
+  usageTrigger: z.string().optional().default(""),
 });
 
-export type UsageStartInput = z.infer<typeof usageStartSchema>;
+/** "ない" の場合は追加項目を必須にする */
+export const usageStartSchema = baseSchema.superRefine((data, ctx) => {
+  if (data.hasUsedBefore === "no") {
+    if (!data.nickname) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "ニックネームを入力してください", path: ["nickname"] });
+    }
+    if (!data.city) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "市区町村を入力してください", path: ["city"] });
+    }
+    if (!data.birthDate) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "生年月日を入力してください", path: ["birthDate"] });
+    }
+    if (!data.visitPurpose) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "選択してください", path: ["visitPurpose"] });
+    }
+    if (!data.usageTrigger) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "選択してください", path: ["usageTrigger"] });
+    }
+  }
+});
+
+export type UsageStartInput = z.infer<typeof baseSchema>;
 
 export const visitPurposeOptions = [
   { value: "shopping", label: "買い物" },
