@@ -18,7 +18,7 @@ export default function HeroSection() {
         <h1 className="text-3xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl">
           商業施設を
           <br />
-          <span className="text-secondary">「体験の場」</span>へ
+          <span className="text-white/90">「体験の場」</span>へ
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
           買い物だけの場所から、来館者が過ごしたくなる空間へ。
@@ -26,8 +26,8 @@ export default function HeroSection() {
           施設の付加価値向上を実現します。
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
-          <CTAButton href="/inquiry">お問い合わせ</CTAButton>
-          <CTAButton href="/contract-application" variant="outline">導入のご相談</CTAButton>
+          <CTAButton href="/inquiry" variant="primary-light">お問い合わせ</CTAButton>
+          <CTAButton href="/contract-application" variant="outline-light">導入のご相談</CTAButton>
         </div>
       </div>
     </section>
